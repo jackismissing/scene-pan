@@ -17,7 +17,7 @@ import ScenePan from 'scene-pan';
 Instantiation
 ---
 ```
-const mousePan = new ScenePan({
+const scenePan = new ScenePan({
     el: document.querySelector('.pan-wrapper'),
     ease: .08
 });

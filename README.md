@@ -1,4 +1,4 @@
-# scene-drag
+# scene-pan
 Smooth scene panning on mouse/touch drag
 
 example

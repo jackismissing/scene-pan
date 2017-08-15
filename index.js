@@ -181,7 +181,7 @@ class ScenePan {
         const toX = (this.destination.x - this.position.x) * .08;
         const toY = (this.destination.y - this.position.y) * .08;
 
-        this.isPanning = (toX > this.treshold || toY > this.treshold);
+        this.isPanning = (Math.abs(toX) > this.treshold || Math.abs(toY) > this.treshold);
 
         this.position.x += toX;
         this.position.y += toY;

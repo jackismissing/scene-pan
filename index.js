@@ -65,15 +65,23 @@ class ScenePan {
         }
     }
 
-    /**
-     * Sets the wrapper size based on its taller and wider childrens
-     */
     setWrapperSize() {
-        this.size = [].slice.call(this.$wrapper.childNodes).reduce(this.getMaxSize);
+        // Filter out non node elements
+        const children = [].slice.call(this.$wrapper.childNodes).filter(this.checkNodeEl);
+        this.size = children.reduce(this.getMaxSize);
         this.size.offsetX = this.size.w - window.innerWidth;
         this.size.offsetY = this.size.h - window.innerHeight;
         this.$wrapper.style.width = `${this.size.w}px`;
         this.$wrapper.style.height = `${this.size.h}px`;
+    }
+
+    /**
+     * Checks wether the passed el is of type ELEMENT_NODE
+     * @param  {[type]} e [description]
+     * @return {[type]}   [description]
+     */
+    checkNodeEl(el) {
+        return el.nodeType === 1;
     }
 
     /**
@@ -93,15 +101,8 @@ class ScenePan {
     }
 
     getElSize(el) {
-        // Is el a proper ELEMENT_NODE ?
-        if (el.nodeType === 1) {
-            el.w = el.offsetWidth;
-            el.h = el.offsetHeight;
-        } else {
-            el.w = el.w || 0;
-            el.h = el.h || 0;
-        }
-
+        el.w = el.offsetWidth;
+        el.h = el.offsetHeight;
         return el;
     }
 

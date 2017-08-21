@@ -186,6 +186,14 @@ class ScenePan {
 
         this.position.x += toX;
         this.position.y += toY;
+        
+        // Round up the values to 2 decimals
+        this.position.x = Math.round(this.position.x * 100) / 100;
+        this.position.y = Math.round(this.position.y * 100) / 100;
+
+        // How much has it moved form it's initial position ?
+        this.offsetFromOrigin.x = ~~(.5 * this.size.offsetX - this.position.x);
+        this.offsetFromOrigin.y = ~~(.5 * this.size.offsetY - this.position.y);
     }
 
     // Utils

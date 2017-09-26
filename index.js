@@ -170,7 +170,6 @@ class ScenePan {
      * Calculates the new position based on the distance between the destination and the current position
      * We add a percentage to add the easing effect
      * https://codepen.io/rachsmith/post/animation-tip-lerp
-     * @return {[type]} [description]
      */
     movePosition() {
         const toX = (this.destination.x - this.position.x) * this.ease;

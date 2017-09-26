@@ -77,8 +77,6 @@ class ScenePan {
 
     /**
      * Checks wether the passed el is of type ELEMENT_NODE
-     * @param  {[type]} e [description]
-     * @return {[type]}   [description]
      */
     checkNodeEl(el) {
         return el.nodeType === 1;
@@ -86,9 +84,6 @@ class ScenePan {
 
     /**
      * Returns the max width and height between two objects
-     * @param  {[type]} acc [description]
-     * @param  {[type]} cur [description]
-     * @return {[type]}     [description]
      */
     getMaxSize(a, b) {
         a = this.getElSize(a);
@@ -108,7 +103,6 @@ class ScenePan {
 
     /**
      * Centers wrapper
-     * @return {[type]} [description]
      */
     setWrapperPosition() {
         this.destination.x = .5 * this.size.offsetX;
@@ -179,8 +173,8 @@ class ScenePan {
      * @return {[type]} [description]
      */
     movePosition() {
-        const toX = (this.destination.x - this.position.x) * .08;
-        const toY = (this.destination.y - this.position.y) * .08;
+        const toX = (this.destination.x - this.position.x) * this.ease;
+        const toY = (this.destination.y - this.position.y) * this.ease;
 
         this.isPanning = (Math.abs(toX) > this.treshold || Math.abs(toY) > this.treshold);
 
